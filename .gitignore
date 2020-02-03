@@ -1,0 +1,29 @@
+### macOS ###
+.DS_Store
+
+### IntelliJ IDEA ###
+*.iml
+*.ipr
+*.iws
+.idea
+generated/
+generated_tests/
+out/
+
+### Gradle ###
+!gradle/wrapper/gradle-wrapper.jar
+.gradle
+build/
+
+### Pipeline ###
+credentials.yml
+
+### Static Resources ###
+vue/cypress/
+node_modules
+src/main/resources/public/
+
+### Properties Files ###
+application-default.properties
+credentials*.properties
+/src/main/resources/application-local.yml
