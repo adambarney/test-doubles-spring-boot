@@ -7,7 +7,8 @@ public class PricingServiceTest {
     private PricingService pricingService;
 
     @BeforeEach
-    void beforeEach() {
-        pricingService = new PricingService();
+    void setup() {
+        this.pricingService = new PricingService(new InventoryRepository(), new KBBClient());
     }
+
 }
