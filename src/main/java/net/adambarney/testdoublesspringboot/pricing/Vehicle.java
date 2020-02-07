@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Vehicle {
-    String vin;
-    Integer price;
+    private String vin;
+    private Integer price;
 }
