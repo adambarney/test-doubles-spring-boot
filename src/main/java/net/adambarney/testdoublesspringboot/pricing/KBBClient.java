@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class KBBClient {
-    public int getCurrentPrice(String vin) {
+    public int getUpdatedPrice(String vin) {
         return 0;
     }
 }
