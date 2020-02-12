@@ -3,9 +3,9 @@ package net.adambarney.testdoublesspringboot.pricing;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KBBClient implements KBBClientInterface {
+public class TagPrinter implements TagPrinterInterface {
     @Override
-    public int getUpdatedPrice(String vin) {
-        return 0;
+    public void print(Vehicle vehicle) {
+
     }
 }

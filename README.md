@@ -17,4 +17,4 @@ WHEN I am running the pricing update task
 
 THEN update the vehicles price in the database
 
-// AND print a new tag
+AND print a new tag

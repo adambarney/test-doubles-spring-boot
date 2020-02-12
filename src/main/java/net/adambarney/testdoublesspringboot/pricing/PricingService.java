@@ -6,16 +6,29 @@ import java.util.List;
 
 @Component
 public class PricingService {
-    private InventoryRepository inventoryRepository;
-    private KBBClient kbbClient;
+    private InventoryRepositoryInterface inventoryRepository;
+    private KBBClientInterface kbbClient;
+    private TagPrinterInterface tagPrinter;
 
-    public PricingService(InventoryRepository inventoryRepository, KBBClient kbbClient) {
+    public PricingService(InventoryRepositoryInterface inventoryRepository,
+                          KBBClientInterface kbbClient, TagPrinterInterface tagPrinter) {
         this.inventoryRepository = inventoryRepository;
         this.kbbClient = kbbClient;
+        this.tagPrinter = tagPrinter;
     }
 
 
     public List<Vehicle> updatePrice() {
-        return null;
+        final List<Vehicle> currentInventory = inventoryRepository.getCurrentInventory();
+        currentInventory.forEach(vehicle -> {
+            final int updatedPrice = kbbClient.getUpdatedPrice(currentInventory.get(0).getVin());
+            if (Math.abs(vehicle.getPrice() - updatedPrice) >= 5) {
+                vehicle.setPrice(updatedPrice);
+                inventoryRepository.updateVehicle(vehicle);
+                tagPrinter.print(vehicle);
+            }
+        });
+
+        return currentInventory;
     }
 }
